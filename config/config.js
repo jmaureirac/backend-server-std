@@ -1,0 +1,1 @@
+module.exports.SEED = '@contraseña-complicada-y-wea$';
