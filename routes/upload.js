@@ -1,6 +1,7 @@
 var express = require('express');
 var fileUpload = require('express-fileupload');
 var fs = require('fs');
+const path = require('path');
 
 var app = express();
 app.use(fileUpload());
@@ -93,8 +94,8 @@ function subirPorTipo( tipo, id, nombreArchivo, res ){
                     errors: { message: 'Usuario no existe' }
                 });
             }
-
-            var pathAntiguo = './uploads/usuarios/' + usuario.img;
+  
+            var pathAntiguo = path.resolve(__dirname, `../../uploads/${ tipo }/${ usuario.img }`);
 
             // Borrar si existe
             if( fs.existsSync(pathAntiguo) ) {
@@ -144,7 +145,7 @@ function subirPorTipo( tipo, id, nombreArchivo, res ){
                 });
             }
 
-            var pathAntiguo = './uploads/medicos/' + medico.img;
+            var pathAntiguo = path.resolve(__dirname, `../../uploads/${ tipo }/${ medico.img }`);
 
             // Borrar si existe
             if( fs.existsSync(pathAntiguo) ) {
@@ -193,7 +194,8 @@ function subirPorTipo( tipo, id, nombreArchivo, res ){
                 });
             }
 
-            var pathAntiguo = './uploads/hospitales/' + hospital.img;
+            // let pathImagen = path.resolve(__dirname, `../../uploads/${ tipo }/${ hospital.img }`);
+            var pathAntiguo = path.resolve(__dirname, `../../uploads/${ tipo }/${ hospital.img }`);
 
             // Borrar si existe
             if( fs.existsSync(pathAntiguo) ) {

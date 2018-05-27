@@ -5,3 +5,7 @@ node_modules/
 .jshintrc
 
 google-signin-demo/node_modules
+
+uploads/hospitales/*
+uploads/usuarios/*
+uploads/medicos/*
